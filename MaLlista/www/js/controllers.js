@@ -1,6 +1,16 @@
 ﻿angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
+.controller('tabController', function ($scope, Translator) {
+    $scope.T = function (token) {
+        return Translator.getToken(token);
+    }
+})
+
+.controller('DashCtrl', function ($scope, Translator) {
+    $scope.T = function (token) {
+        return Translator.getToken(token);
+    }
+})
 
 .controller('ChatsCtrl', function($scope, Chats, Translator) {
   $scope.chats = Chats.all();
@@ -10,6 +20,7 @@
   $scope.t = function (token) {
       return Translator.getToken(token);
   }
+  $scope.currentLanguage = Translator.getLanguage();
 })
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {

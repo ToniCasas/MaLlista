@@ -4,6 +4,7 @@
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
         <img ng-src="{{chat.face}}" title="{{t('DELETE')}}$scope.quepassa" alt="{{t('ACCEPT')}}" />
           <h4>{{t('NAME')}}</h4>
+          <h3>{{currentLanguage}}</h3>
         <h2>{{chat.name}}</h2>
         <p>{{chat.lastText}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
