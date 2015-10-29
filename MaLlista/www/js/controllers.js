@@ -2,14 +2,13 @@
 
 .controller('DashCtrl', function($scope) {})
 
-.controller('ChatsCtrl', function($scope, Chats) {
+.controller('ChatsCtrl', function($scope, Chats, Translator) {
   $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
+  $scope.remove = function (chat) {
+      Chats.remove(chat);
   }
-  $scope.quepassa = 'hola pero que passa';
   $scope.t = function (token) {
-      return "Mi amigo Félix";
+      return Translator.getToken(token);
   }
 })
 
