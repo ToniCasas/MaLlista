@@ -19,23 +19,195 @@
 
     <!-- your app's js -->
     <script src="js/app.js"></script>
-    <script src="js/controllers.js"></script>
+    <script src="js/mallista.controllers.js"></script>
     <script src="js/services.js"></script>
     <script src="js/mallista.i18n.js"></script>
 </head>
 <body ng-app="starter">
-    <!--
-      The nav bar that will be updated as we navigate between views.
-    -->
-    <ion-nav-bar class="bar-stable">
-        <ion-nav-back-button>
-        </ion-nav-back-button>
-    </ion-nav-bar>
-    <!--
-      The views will be rendered in the <ion-nav-view> directive below
-      Templates are in the /templates folder (but you could also
-      have templates inline in this html file if you'd like).
-    -->
-    <ion-nav-view></ion-nav-view>
+    <!-- Common side menu for all views -->
+    <ion-view cache-view="false">
+        <ion-side-menus>
+            <ion-side-menu-content ng-controller="sideMenuCtrl">
+                <ion-nav-bar align-title="left" class="bar-positive bar-mallista">
+                    <ion-nav-back-button class="button-icon button-mallista ion-arrow-left-c">
+                    </ion-nav-back-button>
+                    <!--Application's name-->
+                    <ion-nav-title class="mallista">MaLlista</ion-nav-title>
+                    <!--Button to show side menu-->
+                    <ion-nav-buttons side="right">
+                        <button class="button button-mallista button-icon icon ion-wrench" ng-click="showMenu()"></button>
+                    </ion-nav-buttons>
+                </ion-nav-bar>
+                <ion-nav-view animation="slide-left-right"></ion-nav-view>
+            </ion-side-menu-content>
+
+            <ion-side-menu side="left">
+                <!--Menu Header-->
+                <ion-header-bar class="bar bar-header bar-header-mallista">
+                    <div><h3><i class="icon ion-wrench"></i>{{t('MENU_TOOLS')}}</h3></div>
+                </ion-header-bar>
+                <!--Menu Options-->
+                <ion-content has-header="true">
+                    <ion-list>
+                        <!--Menu Option: Pending-->
+                        <ion-item nav-clear menu-close href="#/tab/pending">{{t('PENDING')}}</ion-item>
+                        <!--Menu Option: Lists-->
+                        <ion-item nav-clear menu-close href="#/tab/lists">{{t('LISTS')}}</ion-item>
+                        <!--Menu Option: Products-->
+                        <ion-item nav-clear menu-close href="#/tab/products">{{t('PRODUCTS')}}</ion-item>
+                        <!--Menu Option: Statistics-->
+                        <ion-item nav-clear menu-close href="#/statistics">{{t('ESTATISTICS')}}</ion-item>
+                        <!--Menu Option: Maintenance-->
+                        <ion-item nav-clear menu-close href="#/maintenance">{{t('MAINTENANCE')}}</ion-item>
+                        <!--Menu Option: Settings-->
+                        <ion-item nav-clear menu-close href="#/settings">{{t('SETTINGS')}}</ion-item>
+                    </ion-list>
+                </ion-content>
+            </ion-side-menu>
+        </ion-side-menus>
+    </ion-view>
+
+    <!-- #region Tabs template -->
+    <script id="tabs.html" type="text/ng-template">
+        <ion-tabs class="tabs-striped tabs-positive tabs-mallista">
+
+            <ion-tab title="{{t('PENDING')}}" href="#/tab/pending">
+                <ion-nav-view name="pending-tab"></ion-nav-view>
+            </ion-tab>
+
+            <ion-tab title="{{t('LISTS')}}" href="#/tab/lists">
+                <ion-nav-view name="lists-tab"></ion-nav-view>
+            </ion-tab>
+
+            <ion-tab title="{{t('PRODUCTS')}}" ui-sref="tabs.products">
+                <ion-nav-view name="products-tab"></ion-nav-view>
+            </ion-tab>
+
+        </ion-tabs>
+    </script>
+    <!-- #endregion -->
+
+    <!-- #region Pending template -->
+    <script id="pending.html" type="text/ng-template">
+        <ion-view>
+            <!-- Action bar with two elements: a button and a combobox -->
+            <ion-header-bar align-title="left" class="bar bar-subheader bar-positive bar-mallista">
+                <!-- Button to add a product to shopping list-->
+                <button class="button button-mallista button-icon icon ion-plus-round" ng-click="addPendingProduct()"></button>
+                <!-- Combobox to filter shopping list -->
+                <div class="select-mallista">
+                    <select>
+                        <option value="">{{t('ALL_LISTS')}}</option>
+                        <option ng-repeat="list in shoppingLists" value="{{list}}">{{list}}</option>
+                    </select>
+                </div>
+            </ion-header-bar>
+            <ion-content class="has-header has-subheader content-mallista">
+                <div class="list card">
+                    <div class="item item-divider">Recent Updates</div>
+                    <div class="item item-body">
+                        <div>
+                            Please: finish this view <b>sector 3</b>
+                        </div>
+                    </div>
+                </div>
+            </ion-content>
+        </ion-view>
+    </script>
+    <!-- #endregion -->
+
+    <!-- #region Lists template -->
+    <script id="lists.html" type="text/ng-template">
+        <ion-view>
+            <ion-content>
+                <p><h4 style="color:white;">Please, finish this view</h4></p>
+            </ion-content>
+        </ion-view>
+    </script>
+    <!-- #endregion -->
+
+    <!-- #region Products template -->
+    <script id="products.html" type="text/ng-template">
+        <ion-view>
+            <ion-content>
+                <p><h4 style="color:white;">Please, finish this view</h4></p>
+            </ion-content>
+        </ion-view>
+    </script>
+    <!-- #endregion -->
+
+    <!-- #region Settings template -->
+    <script id="settings.html" type="text/ng-template">
+        <ion-view>
+            <!-- Action bar with two elements: a back button and a title -->
+            <ion-header-bar align-title="center" class="bar bar-subheader bar-positive bar-mallista">
+                <!-- Button to go back-->
+                <div class="title-mallista-left mallista">
+                    <a class="button button-mallista button-icon icon ion-arrow-left-c" href="#/tabs">&nbsp;{{t('HOME')}}</a>
+                </div>
+                <!-- Title -->
+                <div class="title title-mallista mallista">{{t('SETTINGS')}}</div>
+            </ion-header-bar>
+            <ion-content class="has-header has-subheader content-mallista">
+                <!--Language's configuration-->
+                <div>
+                    <div class="row">
+                        <div class="col col-50">
+                            <h3 class="title title-mallista-left mallista">{{t('LANGUAGE')}}</h3>
+                        </div>
+                        <div class="col col-50">
+                            <!-- Combobox with language's list -->
+                            <div class="select-mallista">
+                                <select ng-model="selectedLan" ng-change='setCurrentLanguage(selectedLan)'>
+                                    <option ng-repeat="lan in languageList" ng-selected="lan.selected" value="{{lan.id}}">{{lan.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ion-content>
+        </ion-view>
+    </script>
+    <!-- #endregion -->
+
+    <script id="about.html" type="text/ng-template">
+        <ion-view>
+            <ion-content>
+                <h3>Create hybrid mobile apps with the web technologies you love.</h3>
+                <p>Free and open source, Ionic offers a library of mobile-optimized HTML, CSS and JS components for building highly interactive apps.</p>
+                <p>Built with Sass and optimized for AngularJS.</p>
+                <p>
+                    <a class="button icon icon-right ion-chevron-right" href="#/tab/navstack">Tabs Nav Stack</a>
+                </p>
+            </ion-content>
+        </ion-view>
+    </script>
+
+    <script id="nav-stack.html" type="text/ng-template">
+        <ion-view>
+            <ion-content>
+                <p><img src="http://ionicframework.com/img/diagrams/tabs-nav-stack.png" style="width:100%"></p>
+            </ion-content>
+        </ion-view>
+    </script>
+
+    <script id="contact.html" type="text/ng-template">
+        <ion-view>
+            <ion-content>
+                <p>@IonicFramework</p>
+                <p>@DriftyCo</p>
+            </ion-content>
+        </ion-view>
+    </script>
+
+
+    <script id="search.html" type="text/ng-template">
+        <ion-view>
+            <ion-content>
+                Search page
+            </ion-content>
+        </ion-view>
+    </script>
+
 </body>
 </html>

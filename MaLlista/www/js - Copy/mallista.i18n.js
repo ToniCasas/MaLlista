@@ -11,18 +11,12 @@
             id: "ca",
             tokens: {
                 ACCEPT: "Acceptar",
-                ALL_LISTS: "Totes les llistes",
+                ALL_LISTS: 'Totes les llistes',
                 DELETE: "Eliminar",
-                ESTATISTICS: "Estadístiques",
-                HOME: "Inici",
-                LANGUAGE: "Idioma",
                 LISTS: "Llistes",
-                MAINTENANCE: "Manteniment",
-                MENU_TOOLS: "Eines",
                 NAME: "Nom",
                 PENDING: "Pendent",
                 PRODUCTS: "Productes",
-                SETTINGS: "Configuració",
             }
         },
         {
@@ -32,16 +26,10 @@
                 ACCEPT: "Accept",
                 ALL_LISTS: 'All shopping lists',
                 DELETE: "Delete",
-                ESTATISTICS: "Statistics",
-                HOME: "Home",
-                LANGUAGE: "Language",
                 LISTS: "Shopping Lists",
-                MAINTENANCE: "Mantenance",
-                MENU_TOOLS: "Tools",
                 NAME: "Name",
                 PENDING: "Pending",
                 PRODUCTS: "Products",
-                SETTINGS: "Settings",
             }
         },
         {
@@ -51,16 +39,10 @@
                 ACCEPT: "Aceptar",
                 ALL_LISTS: 'Todas las listas',
                 DELETE: "Eliminar",
-                ESTATISTICS: "Estadísticas",
-                HOME: "Inicio",
-                LANGUAGE: "Idioma",
                 LISTS: "Listas",
-                MAINTENANCE: "Mantenimiento",
-                MENU_TOOLS: "Herramientas",
                 NAME: "Nombre",
                 PENDING: "Pendiente",
                 PRODUCTS: "Productos",
-                SETTINGS: "Configuración",
             }
         }
     ];
@@ -100,14 +82,6 @@
         },
         setCurrentLanguage: function (lan) {
             currentLan = lan;
-        },
-        getLanguageList: function () {
-            var result = null;
-            result = [];
-            angular.forEach(languages, function (item) {
-                result.push({ id: item.id, name: item.name, selected: item.id == currentLan });
-            });
-            return result;
         }
     };
 });

@@ -1,0 +1,57 @@
+<ion-view>
+    <ion-side-menus>
+         Left menu
+        <ion-side-menu side="left">
+            <header class="bar bar-header bar-stable">
+                <h1 class="title">Left</h1>
+            </header>
+            <ion-content class="has-header">
+                <ion-list>
+                    <ion-item menu-close ng-click="login()">
+                        Login
+                    </ion-item>
+                    <ion-item menu-close href="#/app/search">
+                        Search
+                    </ion-item>
+                    <ion-item menu-close href="#/app/browse">
+                        Browse
+                    </ion-item>
+                    <ion-item menu-close href="#/app/playlists">
+                        Playlists
+                    </ion-item>
+                </ion-list>
+            </ion-content>
+        </ion-side-menu>
+
+        <ion-side-menu-content>
+            <ion-nav-bar class="bar-stable nav-title-slide-ios7">
+                <ion-nav-back-button class="button-clear"><i class="icon ion-ios7-arrow-back"></i> Back</ion-nav-back-button>
+            </ion-nav-bar>
+            <ion-nav-view name="menuContent" animation="slide-left-right"></ion-nav-view>
+        </ion-side-menu-content>
+    </ion-side-menus>
+
+
+    <!-- Action bar -->
+    <ion-header-bar align-title="left" class="bar-subheader bar-positive bar-mallista">
+        <!-- Button to add a product to shopping list-->
+        <button class="button button-mallista button-icon icon ion-plus-round" ng-click="toggleLeft()"></button>
+        <!-- Combobox to select shopping list -->
+        <div class="select-mallista">
+            <select>
+                <option value="">{{t('ALL_LISTS')}}</option>
+                <option ng-repeat="list in shoppingLists" value="{{list}}">{{list}}</option>
+            </select>
+        </div>
+    </ion-header-bar>
+    <ion-content class="has-subheader">
+        <div class="list card">
+            <div class="item item-divider">Recent Updates</div>
+            <div class="item item-body">
+                <div>
+                    Please: finish this view <b>sector 3</b>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
