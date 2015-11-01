@@ -3,21 +3,21 @@ Create tabs with an icon and label, using the tabs-stable style.
 Each tab's child <ion-nav-view> directive will have its own
 navigation history that also transitions its views in and out.
 -->
-<ion-tabs class="tabs-striped tabs-positive">
+<ion-tabs class="tabs-striped tabs-positive tabs-mallista">
 
   <!-- Pending Tab -->
   <!--<ion-tab title="Status" icon-off="ion-ios-pulse" icon-on="ion-ios-pulse-strong" href="#/tab/dash">-->
-  <ion-tab title="{{T('PENDING')}}" href="#/tab/dash">
-    <ion-nav-view name="tab-dash"></ion-nav-view>
+  <ion-tab title="{{t('PENDING')}}" href="#/tab/pending">
+    <ion-nav-view name="tab-pending"></ion-nav-view>
   </ion-tab>
 
   <!-- Shopping Lists Tab -->
-  <ion-tab title="{{T('LISTS')}}" href="#/tab/chats">
+  <ion-tab title="{{t('LISTS')}}" href="#/tab/chats">
     <ion-nav-view name="tab-chats"></ion-nav-view>
   </ion-tab>
 
   <!-- Product Tab -->
-  <ion-tab title="{{T('PRODUCTS')}}" href="#/tab/account">
+  <ion-tab title="{{t('PRODUCTS')}}" href="#/tab/account">
     <ion-nav-view name="tab-account"></ion-nav-view>
   </ion-tab>
 </ion-tabs>

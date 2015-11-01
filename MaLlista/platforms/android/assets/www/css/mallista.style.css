@@ -1,14 +1,98 @@
 /* Empty. Add your own CSS if you like */
-.tabs-striped.tabs-positive .tabs {
-    /*background-color: #387ef5;*/
-    background-color: #444444;
-}
-
-.tabs-striped.tabs-positive .tab-item.tab-item-active, .tabs-striped.tabs-positive .tab-item.active, .tabs-striped.tabs-positive .tab-item.activated {
-    margin-top: -2px;
-    color: #fff;
+.bar.bar-header.bar-header-mallista{
+    border-color: #06a9e2;
     border-style: solid;
-    border-width: 2px 0 0 0;
-    border-color: #fff;
+    border-width: 0px 0 2px 0;
+    text-align: center;
+}
+.bar.bar-header.bar-header-mallista div{
+    text-align: center;
+    width: 100%;
+}
+.bar.bar-header.bar-header-mallista div h3 i{
+    float: left;
+    margin-left: 5px;
+}
+.bar.bar-positive.bar-mallista {
+    background-color: black;
+    border-color: #06a9e2;
+    border-style: solid;
+    border-width: 0px 0 2px 0;
+}
+.button.button-mallista{
+    color:#06a9e2;
+    font-size:0.8em!important;
+    margin-left:-3px;
+    margin-top:-3px;
+}
+.button.button-mallista:hover{color:#06a9e2;}
+.content-mallista{
+    background-color:black;
+    color: white;
+    margin: 5px;
+}
+.mallista{
+    color: #06a9e2!important;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 1.1em;
+    font-weight:bold;
+}
+.pane{background-color:black;}
+
+.select-mallista {
+   display:inline-block;
+   background: url(../img/dropdownicon_II.png) no-repeat;
+   background-position-y: 0;
+   background-position-x: right;
+   border: 1px solid #ccc;
+   float: right;
+   height: 30px;
+   overflow: hidden;
+   width: 85%;
+}
+.select-mallista select {
+    /*width: 80%;
+    float: right;
+    font-size: 1.1em;
+    height: 30px;
+    background-color: black;
+    color: white;*/
+   background: transparent;
+   border: 0;
+   border-radius: 0;
+   color: white;
+   height: 30px;
+   font-size: 0.9em;
+   line-height: 1;
+   padding: 5px;
+   width: 100%;
+   -webkit-appearance: none;
+}
+.select-mallista select > option {
+    color:black;
+}
+.tabs-striped.tabs-positive.tabs-mallista .tab-item {
+    border-color: #06a9e2;
+    border-style:solid;
+    border-width: 0px 0 5px 0;
+    margin-top: -2px;
+    opacity: 1;
+}
+.tabs-striped.tabs-positive.tabs-mallista .tabs {/*background-color: #387ef5;*/background-color: #444444;}
+.tabs-striped.tabs-positive.tabs-mallista .tab-item.tab-item-active, .tabs-striped.tabs-positive .tab-item.active, .tabs-striped.tabs-positive .tab-item.activated {
     background-color: #387ef5;
+    border-color: #06a9e2;
+    border-style: solid;
+    border-width: 0px 0 5px 0;
+    color: #fff;
+    margin-top: -2px;
+}
+.title-mallista-left{
+    float:left;
+}
+.title-mallista{
+    left:inherit!important;
+    right:inherit!important;
+    margin-left:auto;
+    margin-right:auto;
 }
